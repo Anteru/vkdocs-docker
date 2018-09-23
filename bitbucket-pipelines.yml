@@ -5,8 +5,8 @@ pipelines:
     - step:
         services:
           - docker
-        script: 
-          - export IMAGE_NAME=anteru/vkdocs-docker:$BITBUCKET_COMMIT
+        script:
+          - export IMAGE_NAME=$DOCKER_HUB_USERNAME/$BITBUCKET_REPO_SLUG:$BITBUCKET_COMMIT
 
           - docker build -t $IMAGE_NAME .
           - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
