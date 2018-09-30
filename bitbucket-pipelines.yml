@@ -8,7 +8,7 @@ pipelines:
         caches:
           - docker
         script:
-          - export IMAGE_NAME=$DOCKER_HUB_USERNAME/$BITBUCKET_REPO_SLUG:$BITBUCKET_COMMIT
+          - export IMAGE_NAME=$DOCKER_HUB_USERNAME/$BITBUCKET_REPO_SLUG:latest
 
           - docker build -t $IMAGE_NAME .
           - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
